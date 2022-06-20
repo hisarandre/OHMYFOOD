@@ -1,9 +1,9 @@
 // IMPORTS
 
     @import "libs/reset.scss";
-    @import "libs/colors";
-    @import "libs/titles";
-    @import "libs/mixins";
+    @import "libs/variables.scss";
+    @import "libs/titles.scss";
+    @import "libs/mixins.scss";
 
 
 /* GENERAL */
@@ -22,33 +22,42 @@ html {
 }
 
 %shadow {
-    box-shadow: 5px 5px 20px $grey_03;
+    box-shadow: 0.5rem 0.5rem 1rem $shadow;
 }
 
-%btn {
+.btn {
+    @include flex-center;
     min-height: 5rem;
     margin: 2rem 0;
     padding: 0 2rem;
-    border-radius: 2em;
+    border-radius: 5rem;
     color: $white;
     background-color: $primary;
     background: linear-gradient($secondary,$primary);
+    transition: all 0.2s ease-in-out;
     @extend %shadow;
+
+    &:hover {
+        background: linear-gradient(lighten($secondary, 5%),$primary);
+        box-shadow: 0.5rem 0.5rem 1rem darken($shadow, 10%);
+    }
 }
 
 
 /* HEADER */
 
 
-.header {
+header {
     width: 100%;
     padding: 1.5rem 0;
     display: flex;
+}
 
-    &__logo {
-        margin: auto;
-        @extend %titles-logo;
-    }
+.logo {
+    margin: auto;
+
+    header & { @include title-logo; }
+    footer & { @include title-logo(2rem, $white); }
 }
 
 .location {
@@ -56,7 +65,7 @@ html {
     width: 100%;
     height: 5rem;
     background: $grey_02;
-    box-shadow: inset 0px 2px 4px $grey_03;
+    box-shadow: inset 0 0.2rem 0.4rem $shadow;
 
     &__name {
         @include icon-fa ("\f3c5");
@@ -72,8 +81,6 @@ html {
     background: $grey_01;
     text-align: center;
     padding: 4rem;
-
-    &__btn { @extend %btn; }
 }
 
 
@@ -89,6 +96,19 @@ html {
     flex-direction: column;
     gap: 2.4rem;
     margin: 3rem 0 3rem 1.5rem;
+
+    @media #{$small-up} {
+        margin: 3rem 9rem 3rem 10.5rem;
+    }
+
+    @media #{$medium-up} {
+        @include flex-center;
+        flex-direction: row;
+        max-width: 100rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
 
 .step {
@@ -119,25 +139,48 @@ html {
         &--icon-2 { @include icon-fa ("\f0ca", $text); }
         &--icon-3 { @include icon-fa ("\f54e", $text); }
     }
+
+    &:hover {
+        background: lighten($primary, 35%);
+
+        @for $i from 1 through 3 {
+            .step__title--icon-#{$i}::before {
+                color: $primary;  
+            }
+        }
+    }
+
+    @media #{$medium-up} {
+        width: 30%;
+    }
 }
 
 
 /* RESTAURANTS */
 
 
-.restaurants {
+#restaurants {
     padding: 4rem 2rem;
     background: $grey_01;
+}
 
-    &__grid {
-        padding: 2rem 0;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+.grid {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media #{$small-up} {
+        padding: 4rem 0;
+        max-width: 1000px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: auto;
     }
 }
 
 .card {
+    width: 100%;
     background: $white;
     border-radius: 1.5rem;
     position: relative;
@@ -171,13 +214,48 @@ html {
     &__icon {
         @include flex-center;
         padding-right: 1rem;
+
+        .fa-heart {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media #{$small-up} {
+        width: calc(50% - 1rem);
     }
 }
 
+
 /* FOOTER */
 
+
 footer {
-    padding: 2rem 2rem 3rem 2rem;
+    padding: 3rem 2.5rem;
     background: $footer;
     width: 100%;
+
+    @media #{$medium-up} {
+        display: flex;
+    }
 }
+
+.links {
+    padding-top: 2rem;
+
+    @media #{$medium-up} {
+        width: 70%;
+        padding-top: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__link {
+        color: $white;
+        line-height: 1.8;
+
+        &--icon-1 { @include icon-fa ("\f2e7", $white); }
+        &--icon-2 { @include icon-fa ("\f4c4", $white); }
+    }
+}
+
+

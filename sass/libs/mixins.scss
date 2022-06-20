@@ -18,3 +18,9 @@
     align-items: center;
     justify-content: center;
 }
+
+@mixin title-logo ($size-title-logo: 3rem, $color-title-logo: $title) { 
+    font-family: 'Shrikhand', cursive;
+    font-size: $size-title-logo;
+    color: $color-title-logo;
+}
