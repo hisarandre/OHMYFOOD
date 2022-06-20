@@ -1,0 +1,22 @@
+
+    $white: white;
+    $grey_01: #F6F6F6;
+    $grey_02: #EAEAEA;
+    
+    $primary: #9356DC;
+    $secondary: #FF79DA;
+    $tertiary: #99E2D0;
+
+    $shadow: #d4d4d4;
+    $title: #000000;
+    $text: #656565;
+    $footer: #353535;
+
+    
+    $big: 1240px;
+    $medium: 980px;
+    $small: 620px;
+
+    $big-up: "only screen and (min-width: #{$big})";
+    $medium-up: "only screen and (min-width: #{$medium})";
+    $small-up: "only screen and (min-width: #{$small})";
