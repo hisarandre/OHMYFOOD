@@ -1,0 +1,38 @@
+.restaurant-image {
+    height: 28rem;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.restaurant-menu {
+    padding: 3.5rem 2.5rem;
+    width: 100%;
+    border-radius: 4rem 4rem 0 0;
+    background: $grey_01;
+    position: relative;
+    margin-top: -5rem;
+    
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.category-menu {
+    margin-top: 3rem;
+}
+
+.grid {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.plat {
+    background: $white;
+    border-radius: 2rem;
+    padding: 1.5rem;
+    @extend %shadow;
+}

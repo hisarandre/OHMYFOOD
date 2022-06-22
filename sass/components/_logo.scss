@@ -1,0 +1,6 @@
+.logo {
+    margin: auto;
+
+    header & { @include title-logo; }
+    footer & { @include title-logo(2rem, $white); }
+}

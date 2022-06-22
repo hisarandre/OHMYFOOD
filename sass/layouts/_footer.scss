@@ -1,0 +1,28 @@
+footer {
+    padding: 3rem 2.5rem;
+    background: $footer;
+    width: 100%;
+
+    @media #{$medium-up} {
+        display: flex;
+    }
+}
+
+.links {
+    padding-top: 2rem;
+
+    @media #{$medium-up} {
+        width: 70%;
+        padding-top: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__link {
+        color: $white;
+        line-height: 1.8;
+
+        &--icon-1 { @include icon-fa ("\f2e7", $white); }
+        &--icon-2 { @include icon-fa ("\f4c4", $white); }
+    }
+}

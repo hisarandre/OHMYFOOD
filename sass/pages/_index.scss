@@ -1,0 +1,155 @@
+.location {
+    @include flex-center;
+    width: 100%;
+    height: 5rem;
+    background: $grey_02;
+    box-shadow: inset 0 0.2rem 0.4rem $shadow;
+
+    &__name {
+        @include icon-fa ("\f3c5");
+        font-weight: 700;
+        color: $title;
+    }
+}
+
+.intro {
+    @include flex-center;
+    flex-direction: column;
+    gap: 1rem;
+    background: $grey_01;
+    text-align: center;
+    padding: 4rem;
+}
+
+
+/* FUNCTION */
+
+
+.function {
+    padding: 4rem 2rem;
+}
+
+.step-by-step {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin: 3rem 0 3rem 1.5rem;
+
+    @media #{$small-up} {
+        margin: 3rem 9rem 3rem 10.5rem;
+    }
+
+    @media #{$medium-up} {
+        @include flex-center;
+        flex-direction: row;
+        max-width: 100rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.step {
+    display: flex;
+    background: $grey_01;
+    border-radius: 2rem;
+    padding: 2.5rem 3rem;
+    position: relative;
+    @extend %shadow;
+
+    &__num {
+        @include flex-center;
+        background: $primary;
+        color: $white;
+        font-size: 1.2rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 100%;
+        position: absolute;
+        left: -1.2rem;
+    }
+
+    &__title {
+        color: $title;
+        font-weight: 700;
+
+        &--icon-1 { @include icon-fa ("\f3cd", $text); }
+        &--icon-2 { @include icon-fa ("\f0ca", $text); }
+        &--icon-3 { @include icon-fa ("\f54e", $text); }
+    }
+
+    &:hover {
+        background: lighten($primary, 35%);
+
+        @for $i from 1 through 3 {
+            .step__title--icon-#{$i}::before {
+                color: $primary;  
+            }
+        }
+    }
+
+    @media #{$medium-up} {
+        width: 30%;
+    }
+}
+
+
+/* RESTAURANTS */
+
+
+#restaurants {
+    padding: 4rem 2rem;
+    background: $grey_01;
+}
+
+.grid {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media #{$small-up} {
+        padding: 4rem 0;
+        max-width: 1000px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: auto;
+    }
+}
+
+.card {
+    width: 100%;
+    background: $white;
+    border-radius: 1.5rem;
+    position: relative;
+    @extend %shadow;
+
+    img {
+        height: 17.5rem;
+        width: 100%;
+        border-radius: 1.5rem 1.5rem 0 0;
+        object-fit: cover; 
+    }
+
+    &__new {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: darken($tertiary, 40%);
+        background: $tertiary;
+        border-radius: 0.2rem;
+        padding: 0.4rem 1.2rem;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+    
+    &__infos {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem;
+    }
+
+    @media #{$small-up} {
+        width: calc(50% - 1rem);
+    }
+}
+
