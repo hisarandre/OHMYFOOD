@@ -7,11 +7,12 @@
     color: $white;
     background-color: $primary;
     background: linear-gradient($secondary,$primary);
+    opacity: 1;
     transition: all 0.2s ease-in-out;
     @extend %shadow;
 
     &:hover {
-        background: linear-gradient(lighten($secondary, 5%),$primary);
+        opacity: 0.8;
         box-shadow: 0.5rem 0.5rem 1rem darken($shadow, 10%);
     }
 }

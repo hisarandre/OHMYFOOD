@@ -53,8 +53,23 @@
     background: $grey_01;
     border-radius: 2rem;
     padding: 2.5rem 3rem;
+    z-index: 1;
     position: relative;
     @extend %shadow;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: lighten($primary, 35%);
+        border-radius: 2rem;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 250ms;
+    }
 
     &__num {
         @include flex-center;
@@ -78,7 +93,9 @@
     }
 
     &:hover {
-        background: lighten($primary, 35%);
+        &::after {
+            opacity: 1;
+        }
 
         @for $i from 1 through 3 {
             .step__title--icon-#{$i}::before {
@@ -96,23 +113,23 @@
 /* RESTAURANTS */
 
 
-#restaurants {
+.restaurants {
     padding: 4rem 2rem;
     background: $grey_01;
-}
 
-.grid {
-    padding: 2rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    &__grid {
+        padding: 2rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
 
-    @media #{$small-up} {
-        padding: 4rem 0;
-        max-width: 1000px;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin: auto;
+        @media #{$small-up} {
+            padding: 4rem 0;
+            max-width: 1000px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: auto;
+        }
     }
 }
 
@@ -146,6 +163,10 @@
         display: flex;
         justify-content: space-between;
         padding: 1.5rem;
+    }
+
+    &__icon {
+        @include flex-center;
     }
 
     @media #{$small-up} {

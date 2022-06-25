@@ -151,24 +151,61 @@ h3 {
   color: white;
   background-color: #9356DC;
   background: linear-gradient(#FF79DA, #9356DC);
+  opacity: 1;
   transition: all 0.2s ease-in-out;
 }
 .btn:hover {
-  background: linear-gradient(#ff93e1, #9356DC);
+  opacity: 0.8;
   box-shadow: 0.5rem 0.5rem 1rem #bbbbbb;
 }
 
-.icon-heart {
+.heart {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-right: 2rem;
   padding-left: 2rem;
 }
-.icon-heart .fa-heart {
-  font-size: 2.5rem;
+
+.heart__checkbox {
+  display: none;
+}
+.heart__checkbox:checked + .heart__check .icon {
+  transform: scale(0);
+  background: linear-gradient(#9356DC, #FF79DA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0;
+  animation: icon 0.3s ease-out 0.2s forwards;
 }
 
+.heart__check {
+  transition: border 0.3s ease;
+}
+.heart__check i.icon {
+  opacity: 0.8;
+  font-size: 2.5rem;
+  color: white;
+  transition: opacity 0.3s 0.1s ease;
+  -webkit-text-stroke: 0.2rem #000000;
+}
+
+@keyframes icon {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.3);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .logo {
   margin: auto;
 }
@@ -317,7 +354,21 @@ footer {
   background: #F6F6F6;
   border-radius: 2rem;
   padding: 2.5rem 3rem;
+  z-index: 1;
   position: relative;
+}
+.step::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #f2eafb;
+  border-radius: 2rem;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 250ms;
 }
 .step__num {
   display: flex;
@@ -372,8 +423,8 @@ footer {
   color: #656565;
   content: "\f54e";
 }
-.step:hover {
-  background: #f2eafb;
+.step:hover::after {
+  opacity: 1;
 }
 .step:hover .step__title--icon-1::before {
   color: #9356DC;
@@ -391,19 +442,18 @@ footer {
 }
 
 /* RESTAURANTS */
-#restaurants {
+.restaurants {
   padding: 4rem 2rem;
   background: #F6F6F6;
 }
-
-.grid {
+.restaurants__grid {
   padding: 2rem 0;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 @media only screen and (min-width: 620px) {
-  .grid {
+  .restaurants__grid {
     padding: 4rem 0;
     max-width: 1000px;
     flex-direction: row;
@@ -440,6 +490,11 @@ footer {
   justify-content: space-between;
   padding: 1.5rem;
 }
+.card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media only screen and (min-width: 620px) {
   .card {
     width: calc(50% - 1rem);
@@ -468,8 +523,7 @@ footer {
 .category-menu {
   margin-top: 3rem;
 }
-
-.grid {
+.category-menu__grid {
   padding: 2rem 0;
   display: flex;
   flex-direction: column;
@@ -477,6 +531,7 @@ footer {
 }
 
 .plat {
+  width: 100%;
   background: white;
   border-radius: 2rem;
   padding: 1.5rem;
