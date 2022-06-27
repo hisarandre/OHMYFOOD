@@ -30,7 +30,7 @@
 @keyframes switch-to-left {
     0% { 
         opacity: 0; 
-        transform: translateX(-3rem);
+        transform: translateX(-5rem);
     }
 
     50% { 
@@ -40,7 +40,7 @@
     
     100% { 
         opacity: 0; 
-        transform: translateX(3rem);
+        transform: translateX(5rem);
     }    
 }
 

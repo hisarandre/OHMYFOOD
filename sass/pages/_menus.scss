@@ -80,7 +80,7 @@
         .meal__add i.icon { transform: rotate(360deg); }
     }
 
-    @for $i from 1 through 9 {
+    @for $i from 1 through 3 {
         &:nth-child(#{$i}) {
             animation: fade-up 0.8s ease #{$i * 0.3}s both;
         }

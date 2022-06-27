@@ -11,7 +11,8 @@
     i {
         color: $white;
         font-size: 2.6rem;
-        animation: switch-to-left 1s ease-in-out backwards infinite;
+        position: absolute;
+        animation: switch-to-left 1.5s linear both infinite;
 
         @for $i from 1 through 3 {
             &:nth-child(#{$i}) {
