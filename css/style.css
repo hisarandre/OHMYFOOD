@@ -1,7 +1,57 @@
-.plat, .card, .step, .btn {
+@charset "UTF-8";
+.meal, .card, .step, .btn {
   box-shadow: 0.5rem 0.5rem 1rem #d4d4d4;
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes heart-scale {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.3);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes switch-to-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-3rem);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(3rem);
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    z-index: -10;
+  }
+}
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
 html,
 body,
@@ -92,6 +142,10 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  width: 100%;
+}
+
 * {
   color: #656565;
   font-size: 1.6rem;
@@ -140,6 +194,55 @@ h3 {
   line-height: 2;
 }
 
+#loader {
+  position: absolute;
+  top: 0;
+  background: #9356DC;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  animation: fadeout 0.2s ease-out 3s both;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#loader i {
+  color: white;
+  font-size: 2.6rem;
+  animation: switch-to-left 1s ease-in-out backwards infinite;
+}
+#loader i:nth-child(1) {
+  animation-delay: 0.5s;
+}
+#loader i:nth-child(2) {
+  animation-delay: 1s;
+}
+#loader i:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+.container-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+@media only screen and (min-width: 620px) {
+  .restaurants .grid {
+    padding: 4rem 0;
+    max-width: 1000px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+}
+
 .btn {
   display: flex;
   align-items: center;
@@ -158,6 +261,9 @@ h3 {
   opacity: 0.8;
   box-shadow: 0.5rem 0.5rem 1rem #bbbbbb;
 }
+.btn--large {
+  padding: 0 5rem;
+}
 
 .heart {
   display: flex;
@@ -165,6 +271,7 @@ h3 {
   justify-content: center;
   padding-right: 2rem;
   padding-left: 2rem;
+  cursor: pointer;
 }
 
 .heart__checkbox {
@@ -176,7 +283,7 @@ h3 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0;
-  animation: icon 0.3s ease-out 0.2s forwards;
+  animation: heart-scale 0.3s ease-out 0.2s forwards;
 }
 
 .heart__check {
@@ -189,23 +296,10 @@ h3 {
   transition: opacity 0.3s 0.1s ease;
   -webkit-text-stroke: 0.2rem #000000;
 }
-
-@keyframes icon {
-  0% {
-    opacity: 0.4;
-    transform: scale(0.3);
-  }
-  40% {
-    transform: scale(1.1);
-  }
-  60% {
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+.heart__check i.icon:hover {
+  -webkit-text-stroke: 0.2rem #9356DC;
 }
+
 .logo {
   margin: auto;
 }
@@ -446,21 +540,6 @@ footer {
   padding: 4rem 2rem;
   background: #F6F6F6;
 }
-.restaurants__grid {
-  padding: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-@media only screen and (min-width: 620px) {
-  .restaurants__grid {
-    padding: 4rem 0;
-    max-width: 1000px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: auto;
-  }
-}
 
 .card {
   width: 100%;
@@ -508,33 +587,106 @@ footer {
 }
 
 .restaurant-menu {
-  padding: 3.5rem 2.5rem;
   width: 100%;
   border-radius: 4rem 4rem 0 0;
   background: #F6F6F6;
   position: relative;
+  padding: 3.5rem 2.5rem;
   margin-top: -5rem;
 }
 .restaurant-menu__heading {
   display: flex;
   justify-content: space-between;
 }
+@media only screen and (min-width: 980px) {
+  .restaurant-menu {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5.5rem 4.5rem;
+  }
+}
 
 .category-menu {
   margin-top: 3rem;
 }
-.category-menu__grid {
-  padding: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
 
-.plat {
+.meal {
   width: 100%;
   background: white;
   border-radius: 2rem;
-  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  overflow: hidden;
+}
+.meal__infos {
+  width: 100%;
+  padding: 1.6rem 2.2rem 1.6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.meal__name, .meal__name p, .meal__name h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.meal__price {
+  align-self: flex-end;
+  font-weight: 700;
+  padding: 0 1rem;
+}
+.meal__price::after {
+  content: "€";
+}
+.meal__add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  background: #99E2D0;
+  flex-shrink: 0;
+  margin-right: -7rem;
+  transition: margin 0.4s ease-in-out;
+}
+.meal__add i.icon {
+  color: white;
+  font-size: 2.2rem;
+  transition: transform 0.5s ease-in-out 0.1s;
+}
+.meal:hover .meal__add {
+  margin-right: 0;
+}
+.meal:hover .meal__add i.icon {
+  transform: rotate(360deg);
+}
+.meal:nth-child(1) {
+  animation: fade-up 0.8s ease 0.3s both;
+}
+.meal:nth-child(2) {
+  animation: fade-up 0.8s ease 0.6s both;
+}
+.meal:nth-child(3) {
+  animation: fade-up 0.8s ease 0.9s both;
+}
+.meal:nth-child(4) {
+  animation: fade-up 0.8s ease 1.2s both;
+}
+.meal:nth-child(5) {
+  animation: fade-up 0.8s ease 1.5s both;
+}
+.meal:nth-child(6) {
+  animation: fade-up 0.8s ease 1.8s both;
+}
+.meal:nth-child(7) {
+  animation: fade-up 0.8s ease 2.1s both;
+}
+.meal:nth-child(8) {
+  animation: fade-up 0.8s ease 2.4s both;
+}
+.meal:nth-child(9) {
+  animation: fade-up 0.8s ease 2.7s both;
 }
 
 /*# sourceMappingURL=style.css.map */

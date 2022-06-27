@@ -1,4 +1,4 @@
-@mixin icon-fa ($code-icon, $color-icon: $title){
+@mixin icon-fa ($code-icon, $color-icon: $title) {
     &::before {
         display: inline-block;
         font-style: normal;

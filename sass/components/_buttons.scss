@@ -15,4 +15,8 @@
         opacity: 0.8;
         box-shadow: 0.5rem 0.5rem 1rem darken($shadow, 10%);
     }
+
+    &--large {
+        padding: 0 5rem;
+    }
 }

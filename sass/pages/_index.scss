@@ -116,21 +116,6 @@
 .restaurants {
     padding: 4rem 2rem;
     background: $grey_01;
-
-    &__grid {
-        padding: 2rem 0;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-
-        @media #{$small-up} {
-            padding: 4rem 0;
-            max-width: 1000px;
-            flex-direction: row;
-            flex-wrap: wrap;
-            margin: auto;
-        }
-    }
 }
 
 .card {

@@ -2,39 +2,92 @@
     height: 28rem;
     width: 100%;
     object-fit: cover;
-    
 }
 
 .restaurant-menu {
-    padding: 3.5rem 2.5rem;
     width: 100%;
     border-radius: 4rem 4rem 0 0;
     background: $grey_01;
     position: relative;
+    padding: 3.5rem 2.5rem;
     margin-top: -5rem;
     
     &__heading {
         display: flex;
         justify-content: space-between;
     }
+
+    @media #{$medium-up} {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5.5rem 4.5rem;
+    }
 }
 
 .category-menu {
     margin-top: 3rem;
-
-    &__grid {
-        padding: 2rem 0;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-    }    
 }
 
-
-.plat {
+.meal {
     width: 100%;
     background: $white;
     border-radius: 2rem;
-    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    overflow: hidden;
     @extend %shadow;
+    
+    &__infos {
+        width: 100%;
+        padding: 1.6rem 2.2rem 1.6rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+    &__name, &__name p, &__name h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__price {
+        align-self: flex-end;
+        font-weight: 700;
+        padding: 0 1rem;
+        &::after { content: '€'; }
+    }
+    
+    &__add {
+        @include flex-center;
+        width: 7rem;
+        background: $tertiary;
+        flex-shrink: 0;
+        margin-right: -7rem;
+        transition: margin .4s ease-in-out;
+
+        i.icon { 
+            color: $white; 
+            font-size: 2.2rem;
+            transition: transform .5s ease-in-out .1s;
+        }
+    }
+
+    &:hover {
+        .meal__add { margin-right: 0; }
+        .meal__add i.icon { transform: rotate(360deg); }
+    }
+
+    @for $i from 1 through 9 {
+        &:nth-child(#{$i}) {
+            animation: fade-up 0.8s ease #{$i * 0.3}s both;
+        }
+    }
 }
+
+
+
+
+  
