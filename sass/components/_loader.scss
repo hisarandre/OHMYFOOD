@@ -1,23 +1,70 @@
-#loader {
+.loader {
     position: absolute;
     top: 0;
     background: $primary;
     width: 100%;
     height: 100vh;
     z-index: 10;
-    animation: fadeout 0.2s ease-out 3s both;
+    animation: fadeout 0.2s ease-out 5s both;
     @include flex-center;
 
-    i {
-        color: $white;
-        font-size: 2.6rem;
-        position: absolute;
-        animation: switch-to-left 1.5s linear both infinite;
-
-        @for $i from 1 through 3 {
-            &:nth-child(#{$i}) {
-                animation-delay: #{$i * 0.5}s; 
-            }
-        }
+    &__container {
+        width: 11rem;
+        height: 11rem;
+        position: relative;
     }
+}
+
+.plate {
+    width: 100%;
+    height: 100%;
+    animation: fadeout 0.2s ease-out 4.6s both;  
+}
+
+.steak {
+    position: absolute;
+    top: 3rem;
+    left: 3.2rem;
+    width: 3.3rem;
+    animation: pop-up 1.8s ease-in-out both;
+}
+
+.aromatic {
+    position: absolute;
+    top: 4.5rem;
+    right: 2.8rem;
+    width: 1.5rem;
+    animation: pop-up 1.8s ease-in-out 0.5s both;
+}
+
+.salad {
+    position: absolute;
+    top: 3.2rem;
+    right: 3.2rem;
+    width: 2.4rem;
+    animation: pop-up 2s ease-in-out 2s both;
+}
+
+.brocolis {
+    position: absolute;
+    top: 5.3rem;
+    right: 2.8rem;
+    width: 1.8rem;
+    animation: pop-up 2s ease-in-out 2.3s both;
+}
+
+.egg {
+    position: absolute;
+    top: 3.3rem;
+    left: 3.2rem;
+    width: 2rem;
+    animation: pop-up 2s ease-in-out 2.6s both;
+}
+
+.meat {
+    position: absolute;
+    top: 5.1rem;
+    left: 3.4rem;
+    width: 3.1rem;
+    animation: pop-up 2s ease-in-out 2.9s both;
 }

@@ -3,6 +3,23 @@
   box-shadow: 0.5rem 0.5rem 1rem #d4d4d4;
 }
 
+@keyframes pop-up {
+  0% {
+    transform: scale(0) rotate(-40deg);
+  }
+  30% {
+    transform: scale(1);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0) rotate(40deg);
+  }
+}
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -15,18 +32,18 @@
 }
 @keyframes heart-scale {
   0% {
-    opacity: 0.4;
-    transform: scale(0.3);
+    transform: scale(0.1);
   }
   40% {
-    transform: scale(1.1);
+    opacity: 0.5;
+    transform: scale(1);
   }
   60% {
-    transform: scale(0.9);
+    transform: scale(1.3);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.05);
   }
 }
 @keyframes switch-to-left {
@@ -194,32 +211,76 @@ h3 {
   line-height: 2;
 }
 
-#loader {
+.loader {
   position: absolute;
   top: 0;
   background: #9356DC;
   width: 100%;
   height: 100vh;
   z-index: 10;
-  animation: fadeout 0.2s ease-out 3s both;
+  animation: fadeout 0.2s ease-out 5s both;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#loader i {
-  color: white;
-  font-size: 2.6rem;
+.loader__container {
+  width: 11rem;
+  height: 11rem;
+  position: relative;
+}
+
+.plate {
+  width: 100%;
+  height: 100%;
+  animation: fadeout 0.2s ease-out 4.6s both;
+}
+
+.steak {
   position: absolute;
-  animation: switch-to-left 1.5s linear both infinite;
+  top: 3rem;
+  left: 3.2rem;
+  width: 3.3rem;
+  animation: pop-up 1.8s ease-in-out both;
 }
-#loader i:nth-child(1) {
-  animation-delay: 0.5s;
+
+.aromatic {
+  position: absolute;
+  top: 4.5rem;
+  right: 2.8rem;
+  width: 1.5rem;
+  animation: pop-up 1.8s ease-in-out 0.5s both;
 }
-#loader i:nth-child(2) {
-  animation-delay: 1s;
+
+.salad {
+  position: absolute;
+  top: 3.2rem;
+  right: 3.2rem;
+  width: 2.4rem;
+  animation: pop-up 2s ease-in-out 2s both;
 }
-#loader i:nth-child(3) {
-  animation-delay: 1.5s;
+
+.brocolis {
+  position: absolute;
+  top: 5.3rem;
+  right: 2.8rem;
+  width: 1.8rem;
+  animation: pop-up 2s ease-in-out 2.3s both;
+}
+
+.egg {
+  position: absolute;
+  top: 3.3rem;
+  left: 3.2rem;
+  width: 2rem;
+  animation: pop-up 2s ease-in-out 2.6s both;
+}
+
+.meat {
+  position: absolute;
+  top: 5.1rem;
+  left: 3.4rem;
+  width: 3.1rem;
+  animation: pop-up 2s ease-in-out 2.9s both;
 }
 
 .container-center {
@@ -266,40 +327,26 @@ h3 {
   padding: 0 5rem;
 }
 
-.heart {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+i.fa-heart {
   padding-right: 2rem;
   padding-left: 2rem;
-  z-index: 999;
   cursor: pointer;
+  font-size: 2.5rem;
+  position: relative;
 }
-
-.heart__checkbox {
-  display: none;
-}
-.heart__checkbox:checked + .heart__check .icon {
-  transform: scale(0);
+i.fa-heart::after {
+  content: "\f004";
+  font-weight: 900;
   background: linear-gradient(#9356DC, #FF79DA);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 0;
-  animation: heart-scale 0.3s ease-out 0.2s forwards;
+  position: absolute;
+  top: 0;
+  right: 2rem;
+  opacity: 0;
 }
-
-.heart__check {
-  transition: border 0.3s ease;
-}
-.heart__check i.icon {
-  opacity: 0.8;
-  font-size: 2.5rem;
-  color: white;
-  transition: opacity 0.3s 0.1s ease;
-  -webkit-text-stroke: 0.2rem #000000;
-}
-.heart__check i.icon:hover {
-  -webkit-text-stroke: 0.2rem #9356DC;
+i.fa-heart:hover::after {
+  animation: heart-scale 0.3s ease-out 0.2s both;
 }
 
 .logo {
@@ -612,6 +659,42 @@ footer {
 .category-menu {
   margin-top: 3rem;
 }
+.category-menu:nth-of-type(1) .meal:nth-child(1) {
+  animation: fade-up 0.8s ease 0.2s both;
+}
+.category-menu:nth-of-type(1) .meal:nth-child(2) {
+  animation: fade-up 0.8s ease 0.4s both;
+}
+.category-menu:nth-of-type(1) .meal:nth-child(3) {
+  animation: fade-up 0.8s ease 0.6s both;
+}
+.category-menu:nth-of-type(1) .meal:nth-child(4) {
+  animation: fade-up 0.8s ease 0.8s both;
+}
+.category-menu:nth-of-type(2) .meal:nth-child(1) {
+  animation: fade-up 0.8s ease 1s both;
+}
+.category-menu:nth-of-type(2) .meal:nth-child(2) {
+  animation: fade-up 0.8s ease 1.2s both;
+}
+.category-menu:nth-of-type(2) .meal:nth-child(3) {
+  animation: fade-up 0.8s ease 1.4s both;
+}
+.category-menu:nth-of-type(2) .meal:nth-child(4) {
+  animation: fade-up 0.8s ease 1.6s both;
+}
+.category-menu:nth-of-type(3) .meal:nth-child(1) {
+  animation: fade-up 0.8s ease 1.8s both;
+}
+.category-menu:nth-of-type(3) .meal:nth-child(2) {
+  animation: fade-up 0.8s ease 2s both;
+}
+.category-menu:nth-of-type(3) .meal:nth-child(3) {
+  animation: fade-up 0.8s ease 2.2s both;
+}
+.category-menu:nth-of-type(3) .meal:nth-child(4) {
+  animation: fade-up 0.8s ease 2.4s both;
+}
 
 .meal {
   width: 100%;
@@ -662,15 +745,6 @@ footer {
 }
 .meal:hover .meal__add i.icon {
   transform: rotate(360deg);
-}
-.meal:nth-child(1) {
-  animation: fade-up 0.8s ease 0.3s both;
-}
-.meal:nth-child(2) {
-  animation: fade-up 0.8s ease 0.6s both;
-}
-.meal:nth-child(3) {
-  animation: fade-up 0.8s ease 0.9s both;
 }
 
 /*# sourceMappingURL=style.css.map */

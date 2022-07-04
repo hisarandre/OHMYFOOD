@@ -1,41 +1,26 @@
-.heart {
-    @include flex-center;
+i.fa-heart {
     padding-right: 2rem;
     padding-left: 2rem;
-    z-index: 999;
     cursor: pointer;
-} 
-  
-.heart__checkbox {
-    display: none;
+    font-size: 2.5rem;
+    position: relative;
 
-    &:checked + .heart__check .icon {
-        transform: scale(0);
+    &::after {
+        content: '\f004';
+        font-weight: 900;
         background: linear-gradient($primary, $secondary);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        -webkit-text-stroke: 0;
-        animation: heart-scale .3s ease-out .2s forwards;
+        position: absolute;
+        top: 0;
+        right: 2rem;
+        opacity: 0;
+      
     }
-}
-  
-.heart__check {
-    transition: border .3s ease;
-    
-    i.icon {
-        opacity: .8;
-        font-size: 2.5rem;
-        color: $white;
-        transition: opacity .3s .1s ease;
-        -webkit-text-stroke: .2rem $title;
 
-        &:hover {
-            -webkit-text-stroke: .2rem $primary;
-        }
+    &:hover::after {
+        animation: heart-scale .3s ease-out .2s both;
     }
+   
 }
-  
-
-  
-  
   
