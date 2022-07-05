@@ -14,13 +14,11 @@ i.fa-heart {
         position: absolute;
         top: 0;
         right: 2rem;
-        opacity: 0;
-      
+        opacity: 0;  
     }
 
     &:hover::after {
         animation: heart-scale .3s ease-out .2s both;
-    }
-   
+    }  
 }
   

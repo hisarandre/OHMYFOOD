@@ -1,0 +1,21 @@
+{
+  "name": "ohmyfood",
+  "version": "1.0.0",
+  "description": "Project #3 - Dynamisez une page web avec des animations CSS",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass --watch ./sass/style.scss:./css/style.css",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hisarandre/ohmyfood.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "bugs": {
+    "url": "https://github.com/hisarandre/ohmyfood/issues"
+  },
+  "homepage": "https://github.com/hisarandre/ohmyfood#readme"
+}

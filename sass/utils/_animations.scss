@@ -1,23 +1,23 @@
 @keyframes pop-up {
-    0% { 
+    0% {
         transform: scale(0) rotate(-40deg);
     }
 
-    30% { 
+    30% {
         transform: scale(1);
     }
 
-    50%  { 
+    50% {
         transform: rotate(0deg);
     }
-    
-    70% { 
+
+    70% {
         transform: scale(1);
     }
-    
+
     100% {
         transform: scale(0) rotate(40deg);
-    }    
+    }
 }
 
 @keyframes fade-up {
@@ -25,6 +25,7 @@
         opacity: 0;
         transform: translateY(4rem);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -35,43 +36,46 @@
     0% {
         transform: scale(.1);
     }
+
     40% {
         opacity: 0.5;
         transform: scale(1);
     }
+
     60% {
         transform: scale(1.3);
     }
+
     100% {
         opacity: 1;
         transform: scale(1.05);
     }
-  }
-  
+}
+
 @keyframes switch-to-left {
-    0% { 
-        opacity: 0; 
+    0% {
+        opacity: 0;
         transform: translateX(-5rem);
     }
 
-    50% { 
-        opacity: 1; 
+    50% {
+        opacity: 1;
         transform: translateX(0);
     }
-    
-    100% { 
-        opacity: 0; 
+
+    100% {
+        opacity: 0;
         transform: translateX(5rem);
-    }    
+    }
 }
 
 @keyframes fadeout {
-    from { 
-        opacity: 1; 
+    from {
+        opacity: 1;
     }
 
-    to { 
-        opacity: 0; 
+    to {
+        opacity: 0;
         z-index: -10;
-    }    
+    }
 }

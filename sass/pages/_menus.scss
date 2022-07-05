@@ -28,16 +28,16 @@
 .category-menu {
     margin-top: 3rem;
 
-            @for $i from 1 through 3 {
-                &:nth-of-type(#{$i}) {    
+    @for $i from 1 through 3 {
+        &:nth-of-type(#{$i}) {    
 
-                    @for $j from 1 through 4 { 
-                        .meal:nth-child(#{$j}) {
-                        animation: fade-up 0.8s ease #{($i - 1) * 0.8 + $j * 0.2}s both;
-                        }
-                    }
-                } 
+            @for $j from 1 through 4 { 
+                .meal:nth-child(#{$j}) {
+                animation: fade-up 0.8s ease #{($i - 1) * 0.8 + $j * 0.2}s both;
+                }
             }
+        } 
+    }
 }
 
 .meal {
@@ -90,12 +90,6 @@
         .meal__add { margin-right: 0; }
         .meal__add i.icon { transform: rotate(360deg); }
     }
-
-    // @for $i from 1 through 3 {
-    //     &:nth-child(#{$i}) {
-    //         animation: fade-up 0.8s ease #{$i * 0.3}s both;
-    //     }
-    // }
 }
 
 
