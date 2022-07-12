@@ -9,6 +9,8 @@
         @include icon-fa ("\f3c5");
         font-weight: 700;
         color: $title;
+        background: transparent;
+        text-align: center;
     }
 }
 
@@ -34,6 +36,7 @@
     flex-direction: column;
     gap: 2.4rem;
     margin: 3rem 0 3rem 1.5rem;
+    counter-reset: section; 
 
     @media #{$small-up} {
         margin: 3rem 9rem 3rem 10.5rem;
@@ -57,21 +60,13 @@
     position: relative;
     @extend %shadow;
 
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: lighten($primary, 35%);
-        border-radius: 2rem;
-        opacity: 0;
-        z-index: -1;
-        transition: opacity 250ms;
+    &:nth-child(3) { 
+        background: lighten($primary, 35%); 
     }
 
-    &__num {
+    &::before {
+        counter-increment: section;
+        content: counter(section);
         @include flex-center;
         background: $primary;
         color: $white;
@@ -89,19 +84,7 @@
 
         &--icon-1 { @include icon-fa ("\f3cd", $text); }
         &--icon-2 { @include icon-fa ("\f0ca", $text); }
-        &--icon-3 { @include icon-fa ("\f54e", $text); }
-    }
-
-    &:hover {
-        &::after {
-            opacity: 1;
-        }
-
-        @for $i from 1 through 3 {
-            .step__title--icon-#{$i}::before {
-                color: $primary;  
-            }
-        }
+        &--icon-3 { @include icon-fa ("\f54e", $primary); }
     }
 
     @media #{$medium-up} {
@@ -116,6 +99,12 @@
 .restaurants {
     padding: 4rem 2rem;
     background: $grey_01;
+
+    a { 
+        @media #{$small-up} {
+        width: calc(50% - 1rem);
+        }
+    }
 }
 
 .card {
@@ -132,18 +121,6 @@
         object-fit: cover; 
     }
 
-    &__new {
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: darken($tertiary, 40%);
-        background: $tertiary;
-        border-radius: 0.2rem;
-        padding: 0.4rem 1.2rem;
-        position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
-    }
-    
     &__infos {
         display: flex;
         justify-content: space-between;
@@ -154,8 +131,16 @@
         @include flex-center;
     }
 
-    @media #{$small-up} {
-        width: calc(50% - 1rem);
+    &--new:after {
+        content: "Nouveau";
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: darken($tertiary, 40%);
+        background: $tertiary;
+        border-radius: 0.2rem;
+        padding: 0.4rem 1.2rem;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
     }
 }
-

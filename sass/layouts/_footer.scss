@@ -4,7 +4,7 @@ footer {
     width: 100%;
 
     @media #{$medium-up} {
-        display: flex;
+        @include flex-center;
     }
 }
 

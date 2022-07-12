@@ -4,8 +4,8 @@
   "description": "Project #3 - Dynamisez une page web avec des animations CSS",
   "main": "index.html",
   "scripts": {
-    "sass": "sass --watch ./sass/style.scss:./css/style.css",
-    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css"
+    "sass": "sass --watch ./sass/style.scss:./css/style.css ./sass/restaurants.scss:./css/restaurants.css",
+    "prefix": "postcss ./css/style.css ./css/restaurants.css --use autoprefixer -d ./css"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/hisarandre/ohmyfood/issues"
   },
-  "homepage": "https://github.com/hisarandre/ohmyfood#readme"
+  "homepage": "https://github.com/hisarandre/ohmyfood#readme",
+  "devDependencies": {
+    "prettier": "2.7.1"
+  }
 }

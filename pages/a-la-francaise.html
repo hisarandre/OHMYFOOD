@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,13 +12,15 @@
     <script src="https://kit.fontawesome.com/8410bc1a9a.js" crossorigin="anonymous"></script>
 
     <!-- css -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/restaurants.css">
 </head>
 <body>
     
     <header class="header">
         <a href="../index.html" class="fas fa-arrow-left"></a>
-        <p class="logo">Ohmyfood</p>
+        <a href="../index.html">
+            <h1 class="logo">Ohmyfood</h1>
+        </a>
     </header>
 
 
@@ -29,26 +31,24 @@
         <section class="restaurant-menu">
 
             <div class="restaurant-menu__heading">
-                <h1>À la française</h1>
-                <div>
-                    <span class="container-center">
-                        <i class="fa-regular fa-heart"></i>
-                    </span>
+                <h2>À la française</h2>
+                <div class="container-center">
+                    <i class="fa-regular fa-heart"></i>
                 </div>
                 
             </div>
 
             <!--STARTERS-->
-            <section class="category-menu">
-                <h2>Entrées</h2>
+            <article class="category-menu">
+                <h3>Entrées</h3>
 
                 <div class="grid">
 
                     <!--meal 01-->
-                    <article class="meal">
+                    <div class="meal">
                         <div class="meal__infos">
                             <div class= "meal__name">
-                                <h3>Tartare de poulpe acidulé</h3>
+                                <h4>Tartare de poulpe acidulé</h4>
                                 <p>Aux zestes d'orange</p>
                             </div>
                             <div class="meal__price">25</div>
@@ -56,13 +56,13 @@
                         <div class="meal__add">
                             <i class="icon fas fa-check-circle"></i>
                         </div>
-                    </article>
+                    </div>
 
                     <!--meal 02-->
-                    <article class="meal">
+                    <div class="meal">
                         <div class="meal__infos">
                             <div class= "meal__name">
-                                <h3>Velouté de légumes d'antan</h3>
+                                <h4>Velouté de légumes d'antan</h4>
                                 <p>Carotte, panais, topinambour</p>
                             </div>
                             <div class="meal__price">35</div>
@@ -70,13 +70,13 @@
                         <div class="meal__add">
                             <i class="icon fas fa-check-circle"></i>
                         </div>
-                    </article>
+                    </div>
 
                     <!--meal 03-->
-                    <article class="meal">
+                    <div class="meal">
                         <div class="meal__infos">
                             <div class= "meal__name">
-                                <h3>Soupe à l'oignon</h3>
+                                <h4>Soupe à l'oignon</h4>
                                 <p>Revisitée</p>
                             </div>
                             <div class="meal__price">20</div>
@@ -84,23 +84,23 @@
                         <div class="meal__add">
                             <i class="icon fas fa-check-circle"></i>
                         </div>
-                    </article>
+                    </div>
                     
                 </div>
 
-            </section>
+            </div>
 
             <!--MAIN DISHES-->
-            <section class="category-menu">
-                <h2>Plats</h2>
+            <article class="category-menu">
+                <h3>Plats</h3>
 
                 <div class="grid">
 
                     <!--meal 01-->
-                    <article class="meal">
+                    <div class="meal">
                         <div class="meal__infos">
                             <div class= "meal__name">
-                                <h3>Coquilles Saint-Jacques</h3>
+                                <h4>Coquilles Saint-Jacques</h4>
                                 <p>Accompagnées d'une purée de panais</p>
                             </div>
                             <div class="meal__price">40</div>
@@ -108,13 +108,13 @@
                         <div class="meal__add">
                             <i class="icon fas fa-check-circle"></i>
                         </div>
-                    </article>
+                    </div>
 
                     <!--meal 02-->
-                    <article class="meal">
+                    <div class="meal">
                         <div class="meal__infos">
                             <div class= "meal__name">
-                                <h3>Magret de canard</h3>
+                                <h4>Magret de canard</h4>
                                 <p>Et parmentier de pommes de terre</p>
                             </div>
                             <div class="meal__price">35</div>
@@ -122,13 +122,13 @@
                         <div class="meal__add">
                             <i class="icon fas fa-check-circle"></i>
                         </div>
-                    </article>
+                    </div>
 
                     <!--meal 03-->
-                    <article class="meal">
+                    <div class="meal">
                         <div class="meal__infos">
                             <div class= "meal__name">
-                                <h3>Pigeonneau d’Ille-et-Vilaine</h3>
+                                <h4>Pigeonneau d’Ille-et-Vilaine</h4>
                                 <p>Sur son lit de gnocchis aux légumes</p>
                             </div>
                             <div class="meal__price">44</div>
@@ -136,23 +136,23 @@
                         <div class="meal__add">
                             <i class="icon fas fa-check-circle"></i>
                         </div>
-                    </article>
+                    </div>
                     
                 </div>
 
-            </section>
+            </article>
 
             <!--DESSERTS-->
-            <section class="category-menu">
-                <h2>Desserts</h2>
+            <article class="category-menu">
+                <h3>Desserts</h3>
 
                 <div class="grid">
 
                     <!--meal 01-->
-                    <article class="meal">
+                    <div class="meal">
                         <div class="meal__infos">
                             <div class= "meal__name">
-                                <h3>Pétales de violettes glacés</h3>
+                                <h4>Pétales de violettes glacés</h4>
                                 <p>Et purée de noisettes</p>
                             </div>
                             <div class="meal__price">18</div>
@@ -160,13 +160,13 @@
                         <div class="meal__add">
                             <i class="icon fas fa-check-circle"></i>
                         </div>
-                    </article>
+                    </div>
 
                     <!--meal 02-->
-                    <article class="meal">
+                    <div class="meal">
                         <div class="meal__infos">
                             <div class= "meal__name">
-                                <h3>Fondant au chocolat</h3>
+                                <h4>Fondant au chocolat</h4>
                                 <p>Revisité</p>
                             </div>
                             <div class="meal__price">22</div>
@@ -174,13 +174,13 @@
                         <div class="meal__add">
                             <i class="icon fas fa-check-circle"></i>
                         </div>
-                    </article>
+                    </div>
 
                     <!--meal 03-->
-                    <article class="meal">
+                    <div class="meal">
                         <div class="meal__infos">
                             <div class= "meal__name">
-                                <h3>Millefeuille croustillant</h3>
+                                <h4>Millefeuille croustillant</h4>
                                 <p>Myrtilles et pâte d’amande</p>
                             </div>
                             <div class="meal__price">23</div>
@@ -188,11 +188,11 @@
                         <div class="meal__add">
                             <i class="icon fas fa-check-circle"></i>
                         </div>
-                    </article>
+                    </div>
                     
                 </div>
 
-            </section>
+            </article>
 
             <div class="container-center">
                 <a href="#" class="btn btn--large">Commander</a>
@@ -204,7 +204,9 @@
 
 
     <footer>
-        <p class="logo">ohmyfood</p>
+        <a href="../index.html">
+            <h5 class="logo">Ohmyfood</h5>
+        </a>
         <ul class="links">
             <li class="links__link links__link--icon-1"><a href="#">Proposer un restaurant</a></li>
             <li class="links__link links__link--icon-2"><a href="#">Devenir partenaire</a></li>
